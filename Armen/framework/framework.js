@@ -74,9 +74,11 @@ export function useState(initialValue) {
   
       const Component = node.type;
   
-      currentComponent = {
-        state: {}
-      };
+      if (!currentComponent?.state) {
+        currentComponent = {
+          state: {}
+        };
+      }
   
       hookIndex = 0;
   
