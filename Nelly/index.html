@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-target="login-form">Login</button>
+            <button class="tab-btn" data-target="signup-form">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="tab-content active">
+            <h1>Login</h1>
+            <label>
+                Email
+                <input name="email" type="email" placeholder="example@email.com" required>
+            </label>
+
+            <label>
+                Password
+                <input name="password" type="password" required>
+            </label>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <form id="signup-form" class="tab-content">
+            <h1>Sign up</h1>
+
+            <label>
+                Email
+                <input name="email" type="email" placeholder="example@email.com" required>
+            </label>
+
+            <label>
+                Password
+                <input name="password" type="password" required>
+            </label>
+
+            <label>
+                First Name
+                <input name="fname" type="text" placeholder="John" required>
+            </label>
+
+            <label>
+                Last Name
+                <input name="lname" type="text" placeholder="Smith" required>
+            </label>
+
+            <label>
+                Role
+                <select name="role" id="roles">
+                    <option value="LECTURER">Lecturer</option>
+                    <option value="STUDENT">Student</option>
+                    <option value="MANAGER">Manager</option>
+                </select>
+            </label>
+
+            <button type="submit" class="submit-btn">Sign up</button>
+        </form>
+    </div>
+</body>
+
+</html>

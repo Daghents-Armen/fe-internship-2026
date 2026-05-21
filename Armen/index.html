@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat - Sign in</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <div class="logo-icon">
+            <img src="image.png" alt="Chat icon" class="icon" />
+        </div>
+        <span class="logo-name">chat<span class="logo-dot">.</span></span>
+    </div>
+
+    <div class="card" id="auth-card">
+
+        <div class="tabs">
+            <button class="tab active" id="tab-login" onclick="switchTab('login')">Sign in</button>
+            <button class="tab" id="tab-register" onclick="switchTab('register')">Register</button>
+        </div>
+
+        <div id="msg" class="msg" role="alert"></div>
+
+        <div class="form visible" id="login-form">
+            <div class="field">
+                <label for="l-user">Username</label>
+                <input type="text" id="l-user" placeholder="your_username" autocomplete="username">
+            </div>
+            <div class="field">
+                <label for="l-pass">Password</label>
+                <div class="input-wrap">
+                    <input type="password" id="l-pass" class="pw" placeholder="•••••••" autocomplete="current-password">
+                    <button class="pw-btn" type="button" onclick="togglePw('l-pass')">
+                        <img src="btn.png" alt="Chat icon" class="icon">
+                    </button>
+                </div>
+            </div>
+            <button class="btn-submit" onclick="doLogin()">Sign in</button>
+        </div>
+
+        <div class="form" id="register-form">
+            <div class="field">
+                <label for="r-user">Username</label>
+                <input type="text" id="r-user" placeholder="choose a username" autocomplete="username">
+                <span class="hint">3–20 characters</span>
+            </div>
+            <div class="field">
+                <label for="r-email">Email</label>
+                <input type="email" id="r-email" placeholder="you@example.com" autocomplete="email">
+            </div>
+            <div class="field">
+                <label for="r-pass">Password</label>
+                <div class="input-wrap">
+                    <input type="password" id="r-pass" class="pw" placeholder="••••••••" autocomplete="new-password">
+                    <button class="pw-btn" type="button" onclick="togglePw('r-pass', this)">
+                        <img src="btn.png" alt="Chat icon" class="icon">
+                    </button>
+                </div>
+                <span class="hint">At least 6 characters</span>
+            </div>
+            <button class="btn-submit" onclick="doRegister()">Create account</button>
+        </div>
+
+    </div>
+
+    <div id="session-panel">
+        <div class="session-card">
+            <div class="avatar" id="s-avatar"></div>
+            <div class="session-name" id="s-name"></div>
+            <div class="session-sub">Signed in successfully</div>
+            <div class="token-label">Access token</div>
+            <div class="token-box" id="s-token"></div>
+            <div class="session-actions">
+                <button class="btn-secondary" onclick="doRefresh()">Refresh token</button>
+                <button class="btn-secondary" onclick="doLogout()">Sign out</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">Secured with JWT &amp; HttpOnly cookies</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
