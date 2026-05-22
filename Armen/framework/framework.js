@@ -3,6 +3,8 @@ let globalRerender = null;
 let currentComponent = null;
 let hookIndex = 0;
 
+const componentStates = new Map();
+
 export function createElement(type, props, ...children) {
     console.log("createElement:", type);
 
@@ -74,12 +76,11 @@ export function useState(initialValue) {
   
       const Component = node.type;
   
-      if (!currentComponent?.state) {
-        currentComponent = {
-          state: {}
-        };
+      if (!componentStates.has(Component)) {
+        componentStates.set(Component, {});
       }
   
+      currentComponent = { state: componentStates.get(Component) };
       hookIndex = 0;
   
       const renderedVNode = Component(node.props);
